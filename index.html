@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tom Huth — Final year CS student at the University of Glasgow. Full-stack developer & ML researcher.">
-  <title>Tom Huth — Portfolio</title>
+  <meta name="description" content="Tom Huth - Final year Computing Science student at the University of Glasgow. Full-stack developer and ML researcher, open to graduate roles from Summer 2026.">
+  <title>Tom Huth - Portfolio</title>
+  <!-- Favicon: initials SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%232563eb'/><text x='50' y='69' text-anchor='middle' font-family='system-ui,sans-serif' font-size='50' font-weight='800' fill='white'>TH</text></svg>">
+  <!-- Open Graph (update og:url and og:image once deployed) -->
+  <meta property="og:type"         content="website">
+  <meta property="og:title"        content="Tom Huth - Portfolio">
+  <meta property="og:description"  content="Final year Computing Science student at the University of Glasgow. Full-stack developer and ML researcher, open to graduate roles from Summer 2026.">
+  <meta property="og:url"          content="https://tomhuth.dev">
+  <meta property="og:image"        content="https://tomhuth.dev/og-preview.png">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Tom Huth - Portfolio">
+  <meta name="twitter:description" content="Final year Computing Science student at the University of Glasgow. Full-stack developer and ML researcher.">
   <style>
     /* ── Reset & Tokens ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -470,6 +481,79 @@
     .st.in > *:nth-child(4) { transition-delay: .24s;  }
 
     /* ── Responsive ──────────────────────────────────────────────── */
+    /* ── Hero two-column layout ─────────────────────────────────── */
+    .hw {
+      max-width: 1080px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+    .hcontent { flex: 1; min-width: 0; }
+
+    .hphoto {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--blue-lt);
+      box-shadow: 0 0 0 6px rgba(37,99,235,.1), 0 10px 36px rgba(37,99,235,.16);
+      animation: fu .5s ease .08s both;
+    }
+    .hphoto svg,
+    .hphoto img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── Hero meta: location + availability ─────────────────────── */
+    .hmeta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .4rem .9rem;
+      margin-bottom: 2rem;
+      animation: fu .5s ease .38s both;
+    }
+    .hmeta > span {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .84rem;
+      color: var(--ink-m);
+    }
+    .hmeta svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .hmeta .avail {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      background: var(--blue-lt);
+      color: var(--blue-dk);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: .22rem .72rem;
+      border-radius: 999px;
+    }
+
+    /* ── Skill group cards ───────────────────────────────────────── */
+    .scard {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.4rem 1.5rem 1.6rem;
+    }
+
+    /* ── Contact CTA row ─────────────────────────────────────────── */
+    .ctabtn {
+      display: block;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .ctabtn .btn {
+      width: 100%;
+      justify-content: center;
+      font-size: .92rem;
+    }
+
     @media (max-width: 860px) {
       .sg { grid-template-columns: repeat(2, 1fr); }
     }
@@ -484,6 +568,8 @@
         justify-self: auto;
         width: auto;
       }
+      .hw { flex-direction: column-reverse; gap: 2rem; align-items: flex-start; }
+      .hphoto { width: 110px; height: 110px; }
     }
 
     @media (max-width: 460px) {
@@ -523,37 +609,83 @@
 <section id="about">
   <div class="hw">
 
-    <div class="chip">University of Glasgow &middot; BSc Computing Science</div>
+    <!-- Left: text content -->
+    <div class="hcontent">
 
-    <h1 class="ht">
-      Hi, I'm<br><span class="ac">Tom Huth</span>
-    </h1>
+      <div class="chip">University of Glasgow &middot; BSc Computing Science</div>
 
-    <p class="hb">
-      Final year Computing Science student at the University of Glasgow with a passion for
-      clean, efficient code. Experienced building full-stack applications end-to-end &mdash;
-      from marketplaces to ML research pipelines.
-    </p>
+      <h1 class="ht">
+        Hi, I'm<br><span class="ac">Tom Huth</span>
+      </h1>
 
-    <div class="hcta">
-      <a href="#projects" class="btn bs">
-        <!-- grid icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-        </svg>
-        View my work
-      </a>
-      <a href="#contact" class="btn bg">
-        <!-- mail icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-        Get in touch
-      </a>
+      <p class="hb">
+        Final year Computing Science student at the University of Glasgow with a passion for
+        clean, efficient code. Experienced building full-stack applications end-to-end -
+        from marketplaces to ML research pipelines.
+      </p>
+
+      <!-- Location + availability -->
+      <div class="hmeta">
+        <span>
+          <!-- location pin -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Glasgow, UK
+        </span>
+        <span class="avail">
+          <!-- briefcase -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+          </svg>
+        </span>
+      </div>
+
+      <div class="hcta">
+        <a href="#projects" class="btn bs">
+          <!-- grid icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          View my work
+        </a>
+        <a href="#contact" class="btn bg">
+          <!-- mail icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Get in touch
+        </a>
+        <a href="./TomHuth_CV.pdf" download class="btn bg">
+          <!-- download icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download CV
+        </a>
+      </div>
+
+    </div><!-- /hcontent -->
+
+    <!-- Right: profile photo (replace SVG with <img> when ready) -->
+    <div class="hphoto" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="100" fill="#dbeafe"/>
+        <text x="100" y="120" text-anchor="middle"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif"
+              font-size="78" font-weight="800" fill="#2563eb">TH</text>
+      </svg>
     </div>
 
   </div>
@@ -565,7 +697,7 @@
   <div class="w">
     <p class="ey fi">Work</p>
     <h2 class="hd fi">Featured Projects</h2>
-    <p class="sb fi">A selection of things I've built — each a different problem, a different stack.</p>
+    <p class="sb fi">A selection of things I've built: each a different problem, a different stack.</p>
 
     <div class="g2 st">
 
@@ -690,7 +822,7 @@
 
     <div class="sg st">
 
-      <div>
+      <div class="scard">
         <h3>Languages</h3>
         <div class="pills">
           <span class="pill">Python</span>
@@ -701,7 +833,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="scard">
         <h3>Frontend</h3>
         <div class="pills">
           <span class="pill">React</span>
@@ -710,7 +842,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="scard">
         <h3>Backend &amp; Databases</h3>
         <div class="pills">
           <span class="pill">Node.js</span>
@@ -724,7 +856,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="scard">
         <h3>Tools &amp; Other</h3>
         <div class="pills">
           <span class="pill">Git</span>
@@ -746,7 +878,7 @@
   <div class="w">
     <p class="ey fi">Say Hello</p>
     <h2 class="hd fi">Get in Touch</h2>
-    <p class="sb fi">Open to internships, graduate roles, and interesting projects &mdash; my inbox is always open.</p>
+    <p class="sb fi">Open to internships, graduate roles, and interesting projects - my inbox is always open.</p>
 
     <div class="ccard fi">
 
@@ -809,6 +941,19 @@
           </div>
         </div>
       </a>
+
+      <!-- CTA button -->
+      <div class="ctabtn">
+        <a href="mailto:tomhuthbus@gmail.com?subject=Hi%20Tom%20%%80%94%20Let%27s%20Connect" class="btn bs">
+          <!-- mail icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Send me an email
+        </a>
+      </div>
 
     </div><!-- /ccard -->
   </div>
